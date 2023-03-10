@@ -1,19 +1,29 @@
 {
   "name": "@solgenomics/brapijs",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "BrAPI.js is a JavaScript client library for [BrAPI](https://brapi.org). It can be used either in the browser or within Node.js. It uses the [Fetch API](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API) (or [node-fetch]() in Node.js) for AJAX calls. BrAPI.js also uses ES6 classes.",
   "bugs": {
     "url": "https://github.com/solgenomics/BrAPI.js/issues"
   },
-  "repository": "github:solgenomics/BrAPI.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solgenomics/BrAPI.js.git"
+  },
   "license": "MIT",
   "main": "build/BrAPI.js",
   "scripts": {
     "prepare": "rm -rf build && mkdir build && rollup -f umd -n BrAPI -o build/BrAPI.js -- main.js"
   },
-  "author": "David Lyon <npm@dauglyon.com>",
+  "author": "Mirella Flores <mrf252@cornell.edu>",
   "dependencies": {
-    "node-fetch": "2.6.1",
-    "rollup": "0.40"
-  }
+    "node-fetch": "2.6.7",
+    "rollup": "^0.40.2"
+  },
+  "homepage": "https://github.com/solgenomics/BrAPI.js#readme",
+  "directories": {
+    "doc": "docs"
+  },
+  "keywords": [
+    "brapiv2"
+  ]
 }
