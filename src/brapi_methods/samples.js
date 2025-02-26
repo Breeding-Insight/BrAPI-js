@@ -111,24 +111,6 @@ export function search_samples(params,behavior,useOld){
         });
         return this.search("samples",params,behavior);
     }
-};
-
-/** `DELETE /samples`
- * @alias BrAPINode.prototype.samples todo
- * @param {Object} params Parameters to provide to the call
- * @return {BrAPI_Behavior_Node}
- */
-export function samples (params){
-    var call = {
-        'defaultMethod': 'delete',
-        'urlTemplate': '/samples',
-        'params': params,
-        'behavior': 'map',
-    }
-    this.version.check(call.urlTemplate,{
-        introduced:"v1.0" //todo
-    });
-    return this.simple_brapi_call(call);
 }
 
 /** `DELETE /samples/{sampleDbId}?hardDelete=true`
