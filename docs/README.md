@@ -44,7 +44,7 @@ const BrAPI = require('./BrAPI.js');
 
 ## How it Works
 
-BrAPI.js has been designed to allow for many simultaneous and interdependent calls to BrAPI to be performed asynchronously. In order to do this, data are managed by a class of objects called **BrAPINodes**. Nodes are organized into a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph "Directed Acyclic Graph") which represents dependancies. Each node represents a transformation on the data. Basic transformations include [fork](#fork), [join](#join), [map](#map), [reduce](#reduce), and [filter](#filter). BrAPI calls are special transformations. Each BrAPI call can be either a fork (calls returning array data) or a map (calls returning single objects). Data interacts through nodes via tasks. When a task completes, it triggers the creation of new task(s) in all child nodes. With the exception of [reduce](#reduce), the operations can be performed independently on each datum. This means one datum can be transformed across multiple nodes while another moves more slowly.
+BrAPI.js has been designed to allow for many simultaneous and interdependent calls to BrAPI to be performed asynchronously. In order to do this, data are managed by a class of objects called **BrAPINodes**. Nodes are organized into a [DAG](https://en.wikipedia.org/wiki/Directed_acyclic_graph "Directed Acyclic Graph") which represents dependencies. Each node represents a transformation on the data. Basic transformations include [fork](#fork), [join](#join), [map](#map), [reduce](#reduce), and [filter](#filter). BrAPI calls are special transformations. Each BrAPI call can be either a fork (calls returning array data) or a map (calls returning single objects). Data interacts through nodes via tasks. When a task completes, it triggers the creation of new task(s) in all child nodes. With the exception of [reduce](#reduce), the operations can be performed independently on each datum. This means one datum can be transformed across multiple nodes while another moves more slowly.
 
 ## Usage Reference
 
@@ -206,6 +206,10 @@ This method registers a callback function which is called once a node has loaded
 | _node_.attributevalues_modify(_params_,...)||`/attributevalues/{attributeValueDbId}` | `PUT` |
 | _node_.attributevalues_store(_params_,...)||`/attributevalues` | `POST` |
 | _node_.attributevalues(_params_,...)||`/attributevalues` | `GET` |
+| _node_.batchdeletes_modify(_params_,...)||`/batchDeletes/{batchDeleteDbId}` | `PUT` |
+| _node_.batchdeletes_store(_params_,...)||`/batchDeletes` | `POST` |
+| _node_.batchdeletes_detail(_params_,...)||`/batchDeletes/{batchDeleteDbId}` | `GET` |
+| _node_.batchdeletes_delete(_params_,...)||`/batchDeletes/{batchDeleteDbId}?hardDelete=true` | `DELETE` |
 | _node_.breedingmethods_detail(_params_,...) | `/breedingmethods/{breedingMethodDbId}` | `/breedingmethods/{breedingMethodDbId}` | `GET` |
 | _node_.breedingmethods(_params_,...) | `/breedingmethods` | `/breedingmethods` | `GET` |
 | _node_.calls(_params_,...) | `/calls` (server info) | | `GET` |
@@ -241,6 +245,7 @@ This method registers a callback function which is called once a node has loaded
 | _node_.images(_params_,...) | `/images` | `/images` | `GET` |
 | _node_.lists_detail(_params_,...) | `/lists/{listDbId}` | `/lists/{listDbId}` | `GET` |
 | _node_.lists_modify(_params_,...)||`/lists/{listDbId}` | `PUT` |
+| _node_.lists_delete(_params_,...)||`/lists/{listDbId}?hardDelete=true` | `DELETE` |
 | _node_.lists_items_store(_params_,...)||`/lists/{listDbId}/items` | `POST` |
 | _node_.lists_store(_params_,...)||`/lists` | `POST` |
 | _node_.lists(_params_,...) | `/lists` | `/lists` | `GET` |
@@ -301,6 +306,7 @@ This method registers a callback function which is called once a node has loaded
 | _node_.referencesets(_params_,...)||`/referencesets` | `GET` |
 | _node_.samples_detail(_params_,...) | `/samples/{sampleId}` | `/samples/{sampleDbId}` | `GET` |
 | _node_.samples_modify(_params_,...)||`/samples/{sampleDbId}` | `PUT` |
+| _node_.samples_delete(_params_,...)||`/samples/{sampleDbId}?hardDelete=true` | `DELETE` |
 | _node_.samples_store(_params_,...)||`/samples` | `POST` |
 | _node_.samples(_params_,...) | `/samples` | `/samples` | `GET` |
 | _node_.scales_detail(_params_,...) | `/scales/{scaleDbId}` | `/scales/{scaleDbId}` | `GET` |
@@ -362,6 +368,7 @@ This method registers a callback function which is called once a node has loaded
 | _node_.traits(_params_,...) | `/traits` | `/traits` | `GET` |
 | _node_.trials_detail(_params_,...) | `/trials/{trialDbId}` | `/trials/{trialDbId}` | `GET` |
 | _node_.trials_modify(_params_,...)||`/trials/{trialDbId}` | `PUT` |
+| _node_.trials_delete(_params_,...) | `/trials/{trialDbId}` | `/trials/{trialDbId}?hardDelete=true` | `DELETE` |
 | _node_.trials_store(_params_,...)||`/trials` | `POST` |
 | _node_.trials(_params_,...) | `/trials` | `/trials` | `GET` |
 | _node_.variables_datatypes(_params_,...) | `/variables/datatypes` | | `GET` |

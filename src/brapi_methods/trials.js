@@ -52,7 +52,7 @@ export function trials_detail (params){
         'behavior': 'map',
     }
     this.version.check(call.urlTemplate,{
-        introduced:"v1.0"
+        introduced:"v2.1"
     });
     return this.simple_brapi_call(call);
 }
@@ -73,7 +73,7 @@ export function trials_modify (params,behavior){
         'behavior': behavior,
     }
     this.version.check(call.urlTemplate,{
-        introduced:"v2.0"
+        introduced:"v2.1"
     });
     return this.simple_brapi_call(call);
 }
@@ -96,7 +96,27 @@ export function trials_search(params,behavior){
 */
 export function search_trials(params,behavior){
     this.version.check("POST /search/trials -> GET /search/trials",{
-        introduced:"v2.0"
+        introduced:"v2.1"
     });
     return this.search("trials",params,behavior);
 };
+
+/** `DELETE /trials/{trialDbId}?hardDelete=true`
+ * @alias BrAPINode.prototype.trials_delete
+ * @param {Object} params Parameters to provide to the call
+ * @param {String} params.trialDbId trialDbId
+ * @param {hardDelete} params.hardDelete=true whether is a hard or soft delete
+ * @return {BrAPI_Behavior_Node}
+ */
+export function trials_delete (params){
+    var call = {
+        'defaultMethod': 'delete',
+        'urlTemplate': '/trials/{trialDbId}?hardDelete=true',
+        'params': params,
+        'behavior': 'map'
+    }
+    this.version.check(call.urlTemplate,{
+        introduced:"v2.1"
+    });
+    return this.simple_brapi_call(call);
+}

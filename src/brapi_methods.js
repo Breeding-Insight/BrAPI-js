@@ -1,6 +1,7 @@
 export * from "./brapi_methods/allelematrices";
 export * from "./brapi_methods/attributes";
 export * from "./brapi_methods/attributevalues";
+export * from "./brapi_methods/batchdeletes";
 export * from "./brapi_methods/breedingmethods";
 export * from "./brapi_methods/calls";
 export * from "./brapi_methods/callsets";

@@ -120,3 +120,23 @@ export function search_lists(params,behavior){
     });
     return this.search("lists",params,behavior);
 };
+
+/** `DELETE /lists/{listDbId}?hardDelete=true`
+ * @alias BrAPINode.prototype.lists_delete
+ * @param {Object} params Parameters to provide to the call
+ * @param {String} params.listDbId listDbId
+ * @param {hardDelete} params.hardDelete=true whether is a hard or soft delete
+ * @return {BrAPI_Behavior_Node}
+ */
+export function lists_delete (params){
+    var call = {
+        'defaultMethod': 'delete',
+        'urlTemplate': '/lists/{listDbId}?hardDelete=true',
+        'params': params,
+        'behavior': 'map', //delete returns empty response, so behavior doesn't matter
+    }
+    this.version.check(call.urlTemplate,{
+        introduced:"v2.1" //using the highest version number for now
+    });
+    return this.simple_brapi_call(call);
+}
