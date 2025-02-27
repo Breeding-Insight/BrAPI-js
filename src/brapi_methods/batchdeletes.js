@@ -76,4 +76,4 @@ export function batchdeletes_delete(params){
         introduced:"v2.1"
     });
     return this.simple_brapi_call(call);
-}
+};

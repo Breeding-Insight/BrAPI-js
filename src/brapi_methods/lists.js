@@ -106,7 +106,7 @@ export function lists_items_store (params){
 */
 export function lists_search(params,behavior){
     return this.search_lists(params,behavior,true);
-};
+}
 
 /** `POST /search/lists -> GET /search/lists`
 * @alias BrAPINode.prototype.search_lists
@@ -119,7 +119,7 @@ export function search_lists(params,behavior){
         introduced:"v2.0"
     });
     return this.search("lists",params,behavior);
-};
+}
 
 /** `DELETE /lists/{listDbId}?hardDelete=true`
  * @alias BrAPINode.prototype.lists_delete
@@ -139,4 +139,4 @@ export function lists_delete (params){
         introduced:"v2.1" //using the highest version number for now
     });
     return this.simple_brapi_call(call);
-}
+};
