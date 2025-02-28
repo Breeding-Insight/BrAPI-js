@@ -111,4 +111,24 @@ export function search_samples(params,behavior,useOld){
         });
         return this.search("samples",params,behavior);
     }
-};
+}
+
+/** `DELETE /samples/{sampleDbId}?hardDelete=true`
+ * @alias BrAPINode.prototype.samples_delete
+ * @param {Object} params Parameters to provide to the call
+ * @param {String} params.sampleDbId sampleDbId
+ * @param {hardDelete} params.hardDelete=true whether is a hard or soft delete
+ * @return {BrAPI_Behavior_Node}
+ */
+export function samples_delete (params){
+    var call = {
+        'defaultMethod': 'delete',
+        'urlTemplate': '/samples/{sampleDbId}?hardDelete=true',
+        'params': params,
+        'behavior': 'map',
+    }
+    this.version.check(call.urlTemplate,{
+        introduced:"v2.1"
+    });
+    return this.simple_brapi_call(call);
+}

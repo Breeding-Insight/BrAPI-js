@@ -99,4 +99,24 @@ export function search_trials(params,behavior){
         introduced:"v2.0"
     });
     return this.search("trials",params,behavior);
+}
+
+/** `DELETE /trials/{trialDbId}?hardDelete=true`
+ * @alias BrAPINode.prototype.trials_delete
+ * @param {Object} params Parameters to provide to the call
+ * @param {String} params.trialDbId trialDbId
+ * @param {hardDelete} params.hardDelete=true whether is a hard or soft delete
+ * @return {BrAPI_Behavior_Node}
+ */
+export function trials_delete (params){
+    var call = {
+        'defaultMethod': 'delete',
+        'urlTemplate': '/trials/{trialDbId}?hardDelete=true',
+        'params': params,
+        'behavior': 'map'
+    }
+    this.version.check(call.urlTemplate,{
+        introduced:"v2.1"
+    });
+    return this.simple_brapi_call(call);
 };
